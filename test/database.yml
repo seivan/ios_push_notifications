@@ -1,0 +1,22 @@
+# vendor/plugins/yaffle/test/database.yml
+sqlite:
+  :adapter: sqlite
+  :database: vendor/plugins/ios_push_notifications/test/ios_push_notifications_plugin.sqlite.db
+ 
+sqlite3:
+  :adapter: sqlite3
+  :database: vendor/plugins/ios_push_notifications/test/ios_push_notifications_plugin.sqlite3.db
+ 
+postgresql:
+  :adapter: postgresql
+  :username: postgres
+  :password: postgres
+  :database: ios_push_notifications_plugin_test
+  :min_messages: ERROR
+ 
+mysql:
+  :adapter: mysql
+  :host: localhost
+  :username: root
+  :password: password
+  :database: ios_push_notifications_plugin_test

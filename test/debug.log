@@ -1,0 +1,54 @@
+# Logfile created on 2011-02-07 01:08:20 +0100 by logger.rb/25413
+  [1m[36mSQL (0.3ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35mSQL (3.9ms)[0m  CREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "token" text NOT NULL, "last_registered_at" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (1.4ms)[0m  [1mCREATE TABLE "notifications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "device_id" integer NOT NULL, "errors_nb" integer DEFAULT 0, "device_language" varchar(255), "sound" varchar(255), "alert" varchar(255), "badge" integer, "custom_properties" text, "sent_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+  [1m[36mSQL (1.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (1.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('0')
+  [1m[36mSQL (0.4ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35mSQL (5.0ms)[0m  CREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "token" text NOT NULL, "last_registered_at" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (1.2ms)[0m  [1mCREATE TABLE "notifications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "device_id" integer NOT NULL, "errors_nb" integer DEFAULT 0, "device_language" varchar(255), "sound" varchar(255), "alert" varchar(255), "badge" integer, "custom_properties" text, "sent_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+  [1m[36mSQL (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (1.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('0')
+  [1m[36mIosPushNotificationsTest::Device Load (0.2ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
+  [1m[35mIosPushNotificationsTest::Notification Load (0.1ms)[0m  SELECT "notifications".* FROM "notifications"
+  [1m[36mSQL (0.5ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35mSQL (0.1ms)[0m  CREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "token" text NOT NULL, "last_registered_at" datetime, "created_at" datetime, "updated_at" datetime) 
+SQLite3::SQLException: table "devices" already exists: CREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "token" text NOT NULL, "last_registered_at" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mIosPushNotificationsTest::Device Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
+  [1m[35mIosPushNotificationsTest::Notification Load (0.1ms)[0m  SELECT "notifications".* FROM "notifications"
+  [1m[36mIosPushNotificationsTest::Device Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
+  [1m[35mIosPushNotificationsTest::Notification Load (0.1ms)[0m  SELECT "notifications".* FROM "notifications"
+  [1m[36mIosPushNotificationsTest::Device Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
+  [1m[35mIosPushNotificationsTest::Notification Load (0.1ms)[0m  SELECT "notifications".* FROM "notifications"
+  [1m[36mIosPushNotificationsTest::Device Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
+  [1m[35mIosPushNotificationsTest::Notification Load (0.1ms)[0m  SELECT "notifications".* FROM "notifications"
+  [1m[36mIosPushNotificationsTest::Device Load (0.6ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
+  [1m[35mIosPushNotificationsTest::Notification Load (0.1ms)[0m  SELECT "notifications".* FROM "notifications"
+  [1m[36mIosPushNotificationsTest::Device Load (0.6ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
+  [1m[35mIosPushNotificationsTest::Notification Load (0.1ms)[0m  SELECT "notifications".* FROM "notifications"
+  [1m[36mIosPushNotificationsTest::Device Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
+  [1m[35mIosPushNotificationsTest::Notification Load (0.1ms)[0m  SELECT "notifications".* FROM "notifications"
+  [1m[36mIosPushNotificationsTest::Device Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
+  [1m[35mIosPushNotificationsTest::Notification Load (0.1ms)[0m  SELECT "notifications".* FROM "notifications"
