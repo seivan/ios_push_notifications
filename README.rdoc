@@ -23,7 +23,15 @@ end
 
 == Usage
   TODO
- 
+   device = IOSPN::Device.find_or_create_by_token("params[:device_token]")
+    
+    notification = IOSPN::Notification.new
+    notification.device = device
+    notification.badge = 5
+    notification.sound = true
+    notification.alert = "text..."
+    notification.save
+    IOSPN::Notification.send_notifications
 == Rake Tasks
   TODO
   
