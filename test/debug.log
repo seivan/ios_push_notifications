@@ -1,79 +1,92 @@
-# Logfile created on 2011-02-07 01:08:20 +0100 by logger.rb/25413
-  [1m[36mSQL (0.3ms)[0m  [1mselect sqlite_version(*)[0m
-  [1m[35mSQL (3.9ms)[0m  CREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "token" text NOT NULL, "last_registered_at" datetime, "created_at" datetime, "updated_at" datetime) 
-  [1m[36mSQL (1.4ms)[0m  [1mCREATE TABLE "notifications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "device_id" integer NOT NULL, "errors_nb" integer DEFAULT 0, "device_language" varchar(255), "sound" varchar(255), "alert" varchar(255), "badge" integer, "custom_properties" text, "sent_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
-  [1m[35mSQL (0.2ms)[0m   SELECT name
+  [1m[36mSQL (0.3ms)[0m  [1mDROP TABLE iospn_notifications[0m
+SQLite3::SQLException: no such table: iospn_notifications: DROP TABLE iospn_notifications
+  [1m[36mSQL (0.3ms)[0m  [1mDROP TABLE iospn_notifications[0m
+SQLite3::SQLException: no such table: iospn_notifications: DROP TABLE iospn_notifications
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (4.0ms)[0m  [1mCREATE TABLE "iospn_devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "token" text NOT NULL, "last_registered_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (8.2ms)[0m  CREATE TABLE "iospn_notifications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "device_id" integer NOT NULL, "errors_nb" integer DEFAULT 0, "device_language" varchar(255), "sound" varchar(255), "alert" varchar(255), "badge" integer, "custom_properties" text, "sent_at" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (1.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('0')[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 
-  [1m[36mSQL (1.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
-  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
-  [1m[36mSQL (1.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-  [1m[35mSQL (0.2ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-
-  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
-  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('0')
-  [1m[36mSQL (0.4ms)[0m  [1mselect sqlite_version(*)[0m
-  [1m[35mSQL (5.0ms)[0m  CREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "token" text NOT NULL, "last_registered_at" datetime, "created_at" datetime, "updated_at" datetime) 
-  [1m[36mSQL (1.2ms)[0m  [1mCREATE TABLE "notifications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "device_id" integer NOT NULL, "errors_nb" integer DEFAULT 0, "device_language" varchar(255), "sound" varchar(255), "alert" varchar(255), "badge" integer, "custom_properties" text, "sent_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
-  [1m[35mSQL (0.2ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-
-  [1m[36mSQL (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
-  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
-  [1m[36mSQL (1.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-  [1m[35mSQL (0.5ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-
-  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
-  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('0')
-  [1m[36mIosPushNotificationsTest::Device Load (0.2ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
-  [1m[35mIosPushNotificationsTest::Notification Load (0.1ms)[0m  SELECT "notifications".* FROM "notifications"
-  [1m[36mSQL (0.5ms)[0m  [1mselect sqlite_version(*)[0m
-  [1m[35mSQL (0.1ms)[0m  CREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "token" text NOT NULL, "last_registered_at" datetime, "created_at" datetime, "updated_at" datetime) 
-SQLite3::SQLException: table "devices" already exists: CREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "token" text NOT NULL, "last_registered_at" datetime, "created_at" datetime, "updated_at" datetime) 
-  [1m[36mIosPushNotificationsTest::Device Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
-  [1m[35mIosPushNotificationsTest::Notification Load (0.1ms)[0m  SELECT "notifications".* FROM "notifications"
-  [1m[36mIosPushNotificationsTest::Device Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
-  [1m[35mIosPushNotificationsTest::Notification Load (0.1ms)[0m  SELECT "notifications".* FROM "notifications"
-  [1m[36mIosPushNotificationsTest::Device Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
-  [1m[35mIosPushNotificationsTest::Notification Load (0.1ms)[0m  SELECT "notifications".* FROM "notifications"
-  [1m[36mIosPushNotificationsTest::Device Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
-  [1m[35mIosPushNotificationsTest::Notification Load (0.1ms)[0m  SELECT "notifications".* FROM "notifications"
-  [1m[36mIosPushNotificationsTest::Device Load (0.6ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
-  [1m[35mIosPushNotificationsTest::Notification Load (0.1ms)[0m  SELECT "notifications".* FROM "notifications"
-  [1m[36mIosPushNotificationsTest::Device Load (0.6ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
-  [1m[35mIosPushNotificationsTest::Notification Load (0.1ms)[0m  SELECT "notifications".* FROM "notifications"
-  [1m[36mIosPushNotificationsTest::Device Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
-  [1m[35mIosPushNotificationsTest::Notification Load (0.1ms)[0m  SELECT "notifications".* FROM "notifications"
-  [1m[36mIosPushNotificationsTest::Device Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
-  [1m[35mIosPushNotificationsTest::Notification Load (0.1ms)[0m  SELECT "notifications".* FROM "notifications"
-  [1m[36mIosPushNotificationsTest::Device Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
-  [1m[35mIosPushNotificationsTest::Notification Load (0.1ms)[0m  SELECT "notifications".* FROM "notifications"
-  [1m[36mIosPushNotificationsTest::Device Load (0.4ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
-SQLite3::SQLException: no such table: devices: SELECT "devices".* FROM "devices"
-  [1m[36mSQL (0.3ms)[0m  [1mselect sqlite_version(*)[0m
-  [1m[35mSQL (1.5ms)[0m  CREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "token" text NOT NULL, "last_registered_at" datetime, "created_at" datetime, "updated_at" datetime) 
-  [1m[36mSQL (1.1ms)[0m  [1mCREATE TABLE "notifications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "device_id" integer NOT NULL, "errors_nb" integer DEFAULT 0, "device_language" varchar(255), "sound" varchar(255), "alert" varchar(255), "badge" integer, "custom_properties" text, "sent_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
-  [1m[35mSQL (0.2ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-
-  [1m[36mSQL (7.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
-  [1m[35mSQL (2.9ms)[0m  PRAGMA index_list("schema_migrations")
-  [1m[36mSQL (1.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-  [1m[35mSQL (0.2ms)[0m   SELECT name
+  [1m[36mIOSPN::Device Load (0.1ms)[0m  [1mSELECT "iospn_devices"."id" FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "iospn_devices" ("token", "last_registered_at", "created_at", "updated_at") VALUES ('5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz', '2011-02-07 21:26:19.764189', '2011-02-07 21:26:19.820338', '2011-02-07 21:26:19.820338')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "iospn_notifications" ("device_id", "errors_nb", "device_language", "sound", "alert", "badge", "custom_properties", "sent_at", "created_at", "updated_at") VALUES (1, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2011-02-07 21:26:19.822051', '2011-02-07 21:26:19.822051')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "iospn_notifications" ("device_id", "errors_nb", "device_language", "sound", "alert", "badge", "custom_properties", "sent_at", "created_at", "updated_at") VALUES (1, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2011-02-07 21:26:19.823923', '2011-02-07 21:26:19.823923')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "iospn_notifications" ("device_id", "errors_nb", "device_language", "sound", "alert", "badge", "custom_properties", "sent_at", "created_at", "updated_at") VALUES (1, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2011-02-07 21:26:19.824817', '2011-02-07 21:26:19.824817')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "iospn_notifications" ("device_id", "errors_nb", "device_language", "sound", "alert", "badge", "custom_properties", "sent_at", "created_at", "updated_at") VALUES (1, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2011-02-07 21:26:19.825738', '2011-02-07 21:26:19.825738')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "iospn_notifications" ("device_id", "errors_nb", "device_language", "sound", "alert", "badge", "custom_properties", "sent_at", "created_at", "updated_at") VALUES (1, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2011-02-07 21:26:19.826643', '2011-02-07 21:26:19.826643')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "iospn_notifications" WHERE ("iospn_notifications".device_id = 1)
+  [1m[36mIOSPN::Device Load (0.1ms)[0m  [1mSELECT "iospn_devices"."id" FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1[0m
+  [1m[35mIOSPN::Device Load (0.2ms)[0m  SELECT "iospn_devices"."id" FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1
+  [1m[36mIOSPN::Device Load (0.1ms)[0m  [1mSELECT "iospn_devices"."id" FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1[0m
+  [1m[35mIOSPN::Device Load (0.2ms)[0m  SELECT "iospn_devices".* FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1
+  [1m[36mIOSPN::Device Load (0.3ms)[0m  [1mSELECT "iospn_devices".* FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1[0m
+  [1m[35mIOSPN::Device Load (0.1ms)[0m  SELECT "iospn_devices".* FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1
+  [1m[36mIOSPN::Device Load (0.1ms)[0m  [1mSELECT "iospn_devices".* FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1[0m
+  [1m[35mIOSPN::Device Load (0.1ms)[0m  SELECT "iospn_devices".* FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1
+  [1m[36mIOSPN::Device Load (0.1ms)[0m  [1mSELECT "iospn_devices".* FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1[0m
+  [1m[35mIOSPN::Device Load (0.2ms)[0m  SELECT "iospn_devices".* FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1
+  [1m[36mIOSPN::Device Load (0.1ms)[0m  [1mSELECT "iospn_devices".* FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1[0m
+  [1m[35mIOSPN::Device Load (0.1ms)[0m  SELECT "iospn_devices".* FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1
+  [1m[36mAREL (1.3ms)[0m  [1mINSERT INTO "iospn_notifications" ("device_id", "errors_nb", "device_language", "sound", "alert", "badge", "custom_properties", "sent_at", "created_at", "updated_at") VALUES (1, 0, NULL, 'awesome.wav', 'Lorem Ipsum', 7, NULL, NULL, '2011-02-07 21:26:19.885546', '2011-02-07 21:26:19.885546')[0m
+  [1m[35mIOSPN::Device Load (0.2ms)[0m  SELECT "iospn_devices".* FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "iospn_notifications" ("device_id", "errors_nb", "device_language", "sound", "alert", "badge", "custom_properties", "sent_at", "created_at", "updated_at") VALUES (NULL, 0, NULL, 'awesome.wav', 'Lorem Ipsum', 7, NULL, NULL, '2011-02-07 21:26:19.911904', '2011-02-07 21:26:19.911904')[0m
+SQLite3::ConstraintException: iospn_notifications.device_id may not be NULL: INSERT INTO "iospn_notifications" ("device_id", "errors_nb", "device_language", "sound", "alert", "badge", "custom_properties", "sent_at", "created_at", "updated_at") VALUES (NULL, 0, NULL, 'awesome.wav', 'Lorem Ipsum', 7, NULL, NULL, '2011-02-07 21:26:19.911904', '2011-02-07 21:26:19.911904')
+  [1m[35mIOSPN::Device Load (0.2ms)[0m  SELECT "iospn_devices".* FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "iospn_notifications" ("device_id", "errors_nb", "device_language", "sound", "alert", "badge", "custom_properties", "sent_at", "created_at", "updated_at") VALUES (1, 0, NULL, 'awesome.wav', 'Lorem Ipsum', 7, NULL, NULL, '2011-02-07 21:26:19.914939', '2011-02-07 21:26:19.914939')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "iospn_notifications" WHERE ("iospn_notifications"."sent_at" IS NULL)
+  [1m[36mSQL (3.5ms)[0m  [1mDROP TABLE iospn_notifications[0m
+  [1m[35mSQL (1.4ms)[0m  DROP TABLE iospn_devices
+  [1m[36mSQL (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35mSQL (1.1ms)[0m  CREATE TABLE "iospn_devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "token" text NOT NULL, "last_registered_at" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (7.5ms)[0m  [1mCREATE TABLE "iospn_notifications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "device_id" integer NOT NULL, "errors_nb" integer DEFAULT 0, "device_language" varchar(255), "sound" varchar(255), "alert" varchar(255), "badge" integer, "custom_properties" text, "sent_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 
   [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
-  [1m[35mSQL (1.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('0')
-  [1m[36mIosPushNotificationsTest::Device Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
-  [1m[35mIosPushNotificationsTest::Notification Load (0.1ms)[0m  SELECT "notifications".* FROM "notifications"
-  [1m[36mSQL (0.5ms)[0m  [1mselect sqlite_version(*)[0m
-  [1m[35mSQL (0.1ms)[0m  CREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "token" text NOT NULL, "last_registered_at" datetime, "created_at" datetime, "updated_at" datetime) 
-SQLite3::SQLException: table "devices" already exists: CREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "token" text NOT NULL, "last_registered_at" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+  [1m[36mIOSPN::Device Load (0.1ms)[0m  [1mSELECT "iospn_devices"."id" FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "iospn_devices" ("token", "last_registered_at", "created_at", "updated_at") VALUES ('5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz', '2011-02-07 21:50:54.133692', '2011-02-07 21:50:54.188627', '2011-02-07 21:50:54.188627')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "iospn_notifications" ("device_id", "errors_nb", "device_language", "sound", "alert", "badge", "custom_properties", "sent_at", "created_at", "updated_at") VALUES (1, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2011-02-07 21:50:54.190235', '2011-02-07 21:50:54.190235')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "iospn_notifications" ("device_id", "errors_nb", "device_language", "sound", "alert", "badge", "custom_properties", "sent_at", "created_at", "updated_at") VALUES (1, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2011-02-07 21:50:54.191986', '2011-02-07 21:50:54.191986')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "iospn_notifications" ("device_id", "errors_nb", "device_language", "sound", "alert", "badge", "custom_properties", "sent_at", "created_at", "updated_at") VALUES (1, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2011-02-07 21:50:54.192872', '2011-02-07 21:50:54.192872')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "iospn_notifications" ("device_id", "errors_nb", "device_language", "sound", "alert", "badge", "custom_properties", "sent_at", "created_at", "updated_at") VALUES (1, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2011-02-07 21:50:54.193781', '2011-02-07 21:50:54.193781')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "iospn_notifications" ("device_id", "errors_nb", "device_language", "sound", "alert", "badge", "custom_properties", "sent_at", "created_at", "updated_at") VALUES (1, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2011-02-07 21:50:54.194667', '2011-02-07 21:50:54.194667')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "iospn_notifications" WHERE ("iospn_notifications".device_id = 1)
+  [1m[36mIOSPN::Device Load (0.1ms)[0m  [1mSELECT "iospn_devices"."id" FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1[0m
+  [1m[35mIOSPN::Device Load (0.2ms)[0m  SELECT "iospn_devices"."id" FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1
+  [1m[36mIOSPN::Device Load (0.1ms)[0m  [1mSELECT "iospn_devices"."id" FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1[0m
+  [1m[35mIOSPN::Device Load (0.2ms)[0m  SELECT "iospn_devices".* FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1
+  [1m[36mIOSPN::Device Load (0.2ms)[0m  [1mSELECT "iospn_devices".* FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1[0m
+  [1m[35mIOSPN::Device Load (0.2ms)[0m  SELECT "iospn_devices".* FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1
+  [1m[36mIOSPN::Device Load (0.1ms)[0m  [1mSELECT "iospn_devices".* FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1[0m
+  [1m[35mIOSPN::Device Load (0.1ms)[0m  SELECT "iospn_devices".* FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1
+  [1m[36mIOSPN::Device Load (0.1ms)[0m  [1mSELECT "iospn_devices".* FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1[0m
+  [1m[35mIOSPN::Device Load (0.1ms)[0m  SELECT "iospn_devices".* FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1
+  [1m[36mIOSPN::Device Load (0.1ms)[0m  [1mSELECT "iospn_devices".* FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1[0m
+  [1m[35mIOSPN::Device Load (0.1ms)[0m  SELECT "iospn_devices".* FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1
+  [1m[36mAREL (0.7ms)[0m  [1mINSERT INTO "iospn_notifications" ("device_id", "errors_nb", "device_language", "sound", "alert", "badge", "custom_properties", "sent_at", "created_at", "updated_at") VALUES (1, 0, NULL, 'awesome.wav', 'Lorem Ipsum', 7, NULL, NULL, '2011-02-07 21:50:54.250848', '2011-02-07 21:50:54.250848')[0m
+  [1m[35mIOSPN::Device Load (0.2ms)[0m  SELECT "iospn_devices".* FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO "iospn_notifications" ("device_id", "errors_nb", "device_language", "sound", "alert", "badge", "custom_properties", "sent_at", "created_at", "updated_at") VALUES (NULL, 0, NULL, 'awesome.wav', 'Lorem Ipsum', 7, NULL, NULL, '2011-02-07 21:50:54.280836', '2011-02-07 21:50:54.280836')[0m
+SQLite3::ConstraintException: iospn_notifications.device_id may not be NULL: INSERT INTO "iospn_notifications" ("device_id", "errors_nb", "device_language", "sound", "alert", "badge", "custom_properties", "sent_at", "created_at", "updated_at") VALUES (NULL, 0, NULL, 'awesome.wav', 'Lorem Ipsum', 7, NULL, NULL, '2011-02-07 21:50:54.280836', '2011-02-07 21:50:54.280836')
+  [1m[35mIOSPN::Device Load (0.2ms)[0m  SELECT "iospn_devices".* FROM "iospn_devices" WHERE ("iospn_devices"."token" = '5gxadhy6 6zmtxfl6 5zpbcxmw ez3w7ksf qscpr55t trknkzap 7yyt45sc g6jrw7qz') LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "iospn_notifications" ("device_id", "errors_nb", "device_language", "sound", "alert", "badge", "custom_properties", "sent_at", "created_at", "updated_at") VALUES (1, 0, NULL, 'awesome.wav', 'Lorem Ipsum', 7, NULL, NULL, '2011-02-07 21:50:54.284408', '2011-02-07 21:50:54.284408')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "iospn_notifications" WHERE ("iospn_notifications"."sent_at" IS NULL)

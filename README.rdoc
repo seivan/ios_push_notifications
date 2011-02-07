@@ -1,0 +1,52 @@
+IosPushNotifications
+====================
+
+== What is ios_push_notifications
+  Nicely documented Push Notification gem for rails 3 applications, has generators for migrations and an initializer with configuration. Well documented and tested.... compared to other shitty forks out there >_>
+== Install
+
+  gem install ios_push_notifications
+
+== Rails 3
+
+To use ios_push_notifications with Rails 3 you will need to include it in your Gemfile.
+
+group :development do
+  gem "ios_push_notifications"
+end
+
+== Usage
+  * rails g iospn  : Will name the migration files (iospn_devices and iospn_notifications) combined with the initializer
+  
+== Configuration
+  TODO
+
+== Usage
+  TODO
+ 
+== Rake Tasks
+  TODO
+  
+== Certificates
+  TODO
+  
+Copyright (c) 2011 [name of plugin creator]
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

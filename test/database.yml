@@ -1,11 +1,11 @@
 # vendor/plugins/yaffle/test/database.yml
 sqlite:
   :adapter: sqlite
-  :database: vendor/plugins/ios_push_notifications/test/ios_push_notifications_plugin.sqlite.db
+  :database: test/ios_push_notifications_plugin.sqlite.db
  
 sqlite3:
   :adapter: sqlite3
-  :database: vendor/plugins/ios_push_notifications/test/ios_push_notifications_plugin.sqlite3.db
+  :database: test/ios_push_notifications_plugin.sqlite3.db
  
 postgresql:
   :adapter: postgresql

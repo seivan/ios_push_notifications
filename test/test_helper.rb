@@ -1,13 +1,24 @@
 require 'rubygems'
 require 'test/unit'
-require 'active_support'
+require "yaml"
+require "logger"
+
+require File.dirname(__FILE__) + '/../init'
 ENV['RAILS_ENV'] = 'test'
-ENV['RAILS_ROOT'] ||= File.dirname(__FILE__) + '/../../../..'
  
-require 'test/unit'
-require File.expand_path(File.join(ENV['RAILS_ROOT'], 'config/environment.rb'))
+
+def clean_database!
+  models = [IOSPN::Notification, IOSPN::Device]
+  begin
+    models.each do |model|
+      ActiveRecord::Base.connection.execute "DROP TABLE #{model.table_name}"
+    end
+  rescue ActiveRecord::StatementInvalid
+  end
+end
+
  
-def load_schema
+def load_schema!
   config = YAML::load(IO.read(File.dirname(__FILE__) + '/database.yml'))
   ActiveRecord::Base.logger = Logger.new(File.dirname(__FILE__) + "/debug.log")
  
@@ -32,6 +43,14 @@ def load_schema
   end
  
   ActiveRecord::Base.establish_connection(config[db_adapter])
-  load(File.dirname(__FILE__) + "/schema.rb")
-  require File.dirname(__FILE__) + '/../init'
+
+  IOSPN.configure do |c|
+    c.notification[:cert] = File.join(Dir.pwd,"test", "apple_push_notification_development.pem")
 end
+
+
+
+  clean_database!
+  load(File.dirname(__FILE__) + "/schema.rb")
+end
+load_schema!
