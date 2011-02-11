@@ -11,9 +11,7 @@ IosPushNotifications
 
 To use ios_push_notifications with Rails 3 you will need to include it in your Gemfile.
 
-group :development do
-  gem "ios_push_notifications"
-end
+gem "ios_push_notifications"
 
 == Usage
   * rails g iospn  : Will name the migration files (iospn_devices and iospn_notifications) combined with the initializer
