@@ -21,7 +21,7 @@ gem "ios_push_notifications"
 
 == Usage
   TODO
-   device = IOSPN::Device.find_or_create_by_token("params[:device_token]")
+   device = IOSPN::Device.find_or_create_by_token(params[:device_token])
     
     notification = IOSPN::Notification.new
     notification.device = device
