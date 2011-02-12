@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.email       = "seivan@kth.se"
   s.homepage    = "http://github.com/seivan/ios_push_notifications"
   s.summary     = "Push Notification gem for Rails 3 with proper tests and documentation"
-  s.description = "Nicely documented Push Notification gem for rails 3 applications, has generators for migrations and an initializer with configuration. Well documented and tested.... compared to other shitty forks out there >_>"
+  s.description = "Nicely documented Push Notification gem for rails 3 applications, has generators for migrations and an initializer with configuration. It is well documented and tested.... compared to other shitty forks out there >_>"
 
   s.files        = Dir["{lib,test}/**/*", "[A-Z]*"]
   s.require_path = "lib"
