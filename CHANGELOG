@@ -1,2 +1,5 @@
+0.5 (February 11, 2010)
+Token is now correctly set when saving the device.
+
 0.5 (February 07, 2010)
 Tests green without 2 methods. Need to mock certificates.
