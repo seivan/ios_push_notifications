@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-VERSION = "0.6"
+VERSION = "0.7"
 
 Gem::Specification.new do |s|
   s.name        = "ios_push_notifications"
